@@ -15,7 +15,7 @@ let transporter;
   			service: 'gmail',
   			auth: {
     			user: 'arsalankhanxk@gmail.com',
-    			pass: config.get('mail.password');
+    			pass: config.get('mail.password')
   			}
   		})
   		console.log("Mail server connected");
