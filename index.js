@@ -78,36 +78,10 @@ const addUser = async (data) => {
 }
 
 
-
-const addUserObj= {
-     name:"Arsalan",
-     lastName:"khan",
-     password:"1",
-     email:"1",
-     mobile:"123122414",
-     postLiked:[],
-     posts:[{
-         desc:"Its a good property", 
-         areaSize:"10X10",
-         price:300,
-         bedrooms:2,
-         bathroom:2,
-         likes:0,
-         address:"Bhopal,karond,462034"
-     }]
- };
-//addUser(addUserObj);
-
-/*
 app.use(express.static(path.join(__dirname, 'client/build')));
-
-
 app.get('*', (req, res) => { 
   res.sendFile(path.join(__dirname + '/client/build/index.html')) 
 });
-*/
-
-
 
 //if user not logged-in
 app.get('/all-posts', async (req, res) => {
