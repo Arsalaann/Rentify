@@ -1,0 +1,8 @@
+{
+	"mail":{
+		"password":"rentify_mail_password"
+	},
+	"database":{
+		"password":"rentify_database_password"
+	}
+}
