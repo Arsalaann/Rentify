@@ -34,13 +34,7 @@ const App = () => {
 
 
   const getFeedPosts = async () => {
-    const result = await fetch('/all-posts',{
-    	headers:{
-            'Content-Type': 'application/json',
-        },
-        method: 'GET',
-        mode: 'no-cors',
-    });
+    const result = await fetch('/all-posts')
     const user = await result.json();
     updateProperties(user.data);
     for (let i = 0; i < user.data.length; i++) {
