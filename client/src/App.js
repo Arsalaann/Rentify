@@ -34,7 +34,7 @@ const App = () => {
 
 
   const getFeedPosts = async () => {
-    const result = await fetch('/all-posts');
+    const result = await fetch('https://rentifyforhiringchallenge-dcf2a8508131.herokuapp.com/all-posts');
     const user = await result.json();
     updateProperties(user.data);
     for (let i = 0; i < user.data.length; i++) {
