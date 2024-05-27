@@ -4,12 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "build": "cd client && npm install && npm run build"
-  },
-  "engines": {
-    "node": "18.20.2"
   },
   "keywords": [],
   "author": "",
