@@ -1,17 +1,17 @@
-{
-  "name": "rentify",
+"name": "rentify",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node server/index.js",
+  	"start":"node server/index.js",
   	"build":"cd client && npm install && npm run build"
+  },
+  "engines": {
+    "node": "18.20.2"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "config": "^3.3.11"
+  	"config": "^3.3.11",
   }
-}

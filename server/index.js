@@ -16,7 +16,7 @@ let transporter;
   			service: 'gmail',
   			auth: {
     			user: 'arsalankhanxk@gmail.com',
-    			pass: config.get('mail.mailPassword');
+    			pass: config.get('mail.MAIL_PASSWORD')
   			}
   		})
   		console.log("Mail server connected");
@@ -34,7 +34,7 @@ const tempFun=async()=>{
 
 
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
-const d_pass=config.get('database.databasePassword');
+const d_pass=config.get('database.DATABASE_PASSWORD');
 
 mongoose.connect(`mongodb+srv://arsalankhanxk:${d_pass}@cluster0.qsagssm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,clientOptions)
 	.then(()=>mongoose.connection.db.admin().command({ ping: 1 }))
