@@ -109,8 +109,9 @@ const addUserObj= {
 
 //if user not logged-in
 
-app.get('*', (req, res) => { 
-  res.sendFile(path.join(__dirname + '/client/build/index.html')) 
+app.get('*', function (req, res) {
+  const index = path.join(__dirname, 'build', 'index.html');
+  res.sendFile(index);
 });
 
 app.get('/all-posts', async (req, res) => {
