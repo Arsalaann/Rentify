@@ -16,7 +16,7 @@ let transporter;
   			service: 'gmail',
   			auth: {
     			user: 'arsalankhanxk@gmail.com',
-    			pass: 'hntb amjv ptjx tsat' //This is app password and it will be deleted after few days, contact me: 9685433213 for password
+    			pass: config.get('mail.mailPassword');
   			}
   		})
   		console.log("Mail server connected");
@@ -34,9 +34,9 @@ const tempFun=async()=>{
 
 
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
+const d_pass=config.get('database.databasePassword');
 
-
-mongoose.connect('mongodb+srv://arsalankhanxk:9685783616%40Aa@cluster0.qsagssm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',clientOptions)
+mongoose.connect(`mongodb+srv://arsalankhanxk:${d_pass}@cluster0.qsagssm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,clientOptions)
 	.then(()=>mongoose.connection.db.admin().command({ ping: 1 }))
     .then(() => console.log("Database Connected Successfully"))
     .catch((err) => console.error("Database connection failure ", err));
