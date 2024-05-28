@@ -81,13 +81,16 @@ const Posts = (props) => {
                             <div>Location:   {props.postData.address}</div>
                         </div>
 
-                        <div className={style['post-interested-btn-container']}>
+                        {(!isAuthenticated || 
+                         (isAuthenticated && props.userData.email!==props.myBioData.email)) && 
+                         <div className={style['post-interested-btn-container']}>
                             <button
                                 onClick={interestedButtonHandler}
                                 className={style['post-interested-btn']}>
                                 I am Interested
                             </button>
                         </div>
+                        }
 
 
                     </div>
