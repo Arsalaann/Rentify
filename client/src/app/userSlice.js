@@ -8,9 +8,19 @@ const userSlice=createSlice({
         
     },
     reducers:{
-        updateIsAuthenticated:(state)=>{state.isAuthenticated=true},
+        updateIsAuthenticated:(state,action)=>{
+        	if(typeof action.payload !== 'undefined')
+        		state.isAuthenticated=action.payload;
+        	else
+        		state.isAuthenticated=true
+        },
 
-        updateIsRentant:(state)=>{state.isRentant=!state.isRentant},
+        updateIsRentant:(state,action)=>{
+        	if(typeof action.payload!=='undefined')
+        		state.isRentant=true;
+        	else
+        		state.isRentant=!state.isRentant
+        },
 
         
     }

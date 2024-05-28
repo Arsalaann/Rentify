@@ -45,12 +45,37 @@ const App = () => {
     }
     setLoader(false);
   }
+  
+  const userAlreadyAuthenticated=async()=>{
+    const response = await fetch('/users', {
+    	method: "POST",
+        body: JSON.stringify({
+        	email: localStorage.getItem("arsalan-rentify-email"),
+       		password: localStorage.getItem("arsalan-rentify-password")
+        }),
+        headers: {
+           "content-type": "application/json"
+        }
+    });
+    const result = await response.json();
+    updateMyBioData({...result.data});
+    dispatch(updateIsAuthenticated());
+  }
 
 
   useEffect(() => {
     setLoader(true);
+    if(localStorage.getItem("arsalan-rentify-email"))
+    	userAlreadyAuthenticated();
     getFeedPosts();
   }, [])
+  
+  useEffect(()=>{
+  	if(myBioData.email!==""){
+  		localStorage.setItem("arsalan-rentify-email",myBioData.email);
+  		localStorage.setItem("arsalan-rentify-password",myBioData.password);
+  	}
+  },[myBioData])
 
 
   const dispatch = useDispatch();
@@ -71,6 +96,20 @@ const App = () => {
     setAuthenticationForm(false);
     dispatch(updateIsAuthenticated());
     setLoader(false);
+  }
+  
+  const logoutHandler=()=>{
+  	dispatch(updateIsAuthenticated(false));
+  	updateMyBioData({
+      name: "Login",
+      lastName: "",
+      email: "",
+      mobile: "",
+      postLiked: [],
+      posts: []
+    });
+    dispatch(updateIsRentant(true));
+    localStorage.clear();
   }
 
   return (
@@ -102,6 +141,7 @@ const App = () => {
       <Navbar
         userName={myBioData.name}
         onLoginButtonClick={showFormHandler}
+        onLogoutButtonClick={logoutHandler}
         toggleIntention={toggleIntentionHandler}
         buttonText={isRentant ? "My Property" : "Rent"}
       />

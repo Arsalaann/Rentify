@@ -29,9 +29,20 @@
     box-shadow: 0px 0px 2px 0 rgb(201, 201, 201);
 }
 
+.navbar div{
+	display:flex;
+	align-items:center;
+	gap:1vw;
+	font-size:14px;
+}
+
+.navbar h5{
+	color:rgb(200,200,200);
+}
+
 @media screen and (max-width:300px){
 	.navbar{
-		font-size:15px;
+		font-size:13px;
 	}
 	.company-mark{
     	letter-spacing: 2px;
@@ -40,5 +51,9 @@
 	}
 	.intention{
 		font-size:10px;
+	}
+	
+	.navbar div{
+		display:block;
 	}
 }

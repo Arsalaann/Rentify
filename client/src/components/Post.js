@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import style from './Post.module.css';
 import { useSelector } from 'react-redux';
 import { FaHeart } from "react-icons/fa";
@@ -9,6 +9,10 @@ const Posts = (props) => {
     const [userDetails, setUserDetails] = useState(false);
 
     const isAuthenticated = useSelector(state => state.user.isAuthenticated);
+    
+    useEffect(()=>{
+    	setUserDetails(false);
+    },[isAuthenticated]);
 
     const interestedButtonHandler = () => {
         if (!isAuthenticated)
